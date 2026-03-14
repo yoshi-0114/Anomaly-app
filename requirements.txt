@@ -3,10 +3,10 @@ streamlit==1.54.0
 torch==2.6.0+cpu
 torchvision==0.21.0+cpu
 torchaudio==2.6.0+cpu
-pandas==2.3.3
-numpy==1.26.4
-scikit-learn==1.7.1
-umap-learn==0.5.9.post2
-matplotlib==3.10.6
-seaborn==0.13.2
 openla==0.3.0
+pandas
+numpy<2.0.0
+scikit-learn
+umap-learn
+matplotlib
+seaborn
