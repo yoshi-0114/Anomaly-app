@@ -30,7 +30,7 @@ def load_data(min_week, max_week, courses):
     df = pd.DataFrame()
     user_grades = {}
     for course in courses:
-        course_info, event_stream = la.start_analysis(files_dir="/home/SRC/B4/data/EduData_20230710/Students", course_id=course)
+        course_info, event_stream = la.start_analysis(files_dir="./Students", course_id=course)
         users = sorted(course_info.user_id(), key=lambda x: int(x.split("_U")[1]))
         for u in users:
             try:
@@ -303,11 +303,10 @@ def create_summary_row(df, label, total_len):
 
 st.title("学習行動 異常検知ダッシュボード")
 
-dir_path = r"/home/SRC/B4/Behavior_prediction/img/BERT_action_weight_mask_v2_weeks_Mean/base/idf/model/"
 min_week = 1
 max_week = 8
 epoch = 300
-model_path = dir_path + f"model_other_2022_{epoch}epoch_{min_week}-{max_week}.pth"
+model_path = f"./model_other_2022_{epoch}epoch_{min_week}-{max_week}.pth"
 all_course = [
     "A-2019", "A-2020", "A-2021", "A-2022",
     "B-2019", "B-2020",
