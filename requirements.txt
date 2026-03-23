@@ -1,8 +1,5 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 streamlit==1.54.0
-torch==2.6.0+cpu
-torchvision==0.21.0+cpu
-torchaudio==2.6.0+cpu
 openla==0.3.0
 pandas
 numpy<2.0.0
