@@ -306,7 +306,7 @@ st.title("学習行動 異常検知ダッシュボード")
 min_week = 1
 max_week = 8
 epoch = 300
-model_path = f"./model_other_2022_{epoch}epoch_{min_week}-{max_week}.pth"
+model_path = f"./model_{min_week}-{max_week}.pth"
 all_course = [
     "A-2019", "A-2020", "A-2021", "A-2022",
     "B-2019", "B-2020",
