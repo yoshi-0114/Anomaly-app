@@ -115,7 +115,8 @@ def BERT_structure(model_type):
 def load_model(model_path, model_type, max_seq_len, action2id):
     d_model, n_heads, n_layers, _ = BERT_structure(model_type)
     model = ActionBERT(vocab_size=len(action2id), d_model=d_model, n_heads=n_heads, n_layers=n_layers, max_position_embeddings=max_seq_len).to(device)
-    model.load_state_dict(torch.load(model_path))
+    # model.load_state_dict(torch.load(model_path))
+    model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()
 
     return model
