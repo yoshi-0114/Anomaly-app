@@ -186,7 +186,7 @@ def detect_anomalies(model, df, action2id, id2action, seq_len, avg_mode, target_
                 all_sequences.append(input_seq)
                 window_user.append(sid)
 
-    batch_size = 16
+    batch_size = 8
     input_ids_tensor = torch.tensor(all_sequences, device=device)
     emb_list = []
 
