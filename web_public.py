@@ -85,8 +85,7 @@ OPERATION_CATEGORIES = {
 
 
 st.set_page_config(
-    page_title="学習行動ダッシュボード｜公開デモ",
-    page_icon="📊",
+    page_title="学習行動ダッシュボード",
     layout="wide",
     initial_sidebar_state="expanded",
 )
