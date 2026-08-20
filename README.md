@@ -148,8 +148,8 @@ requirements-video.txt               # 動画作成用依存関係
 .streamlit/
   config.toml                        # 公開画面のテーマ設定
 .gitignore                           # 秘密情報・キャッシュの除外
-public_data/
 .gitattributes                       # 動画・画像・圧縮データをバイナリとして扱う設定
+public_data/
   learning_events.csv.gz             # 合成イベントログ
   metadata.json                       # 生成条件と件数
   README.md                           # データ列の説明
