@@ -400,7 +400,7 @@ st.title("学習行動 異常検知ダッシュボード")
 st.caption("授業中の操作ログから、普段と異なる学習行動と行動タイプを確認する公開デモです。")
 
 if not DATA_PATH.exists():
-    st.error("公開用ダミーデータがありません。`python3 scripts/generate_public_dummy_data.py` を実行してください。")
+    st.error("公開用データがありません。`public_data/learning_events.csv.gz` を配置してください。")
     st.stop()
 
 with st.spinner("公開用ダミーデータを読み込んでいます…"):

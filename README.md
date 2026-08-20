@@ -2,7 +2,7 @@
 
 授業中の教材操作ログから、全体と異なる学習行動や、似た行動タイプを確認するStreamlitアプリです。
 
-この公開版は、固定シードで生成した合成データだけを使用します。実在する学生、授業、教材、操作履歴、研究用モデルは含みません。
+この公開版は、完全な合成データだけを使用します。実在する学生、授業、教材、操作履歴、研究用モデルは含みません。
 
 > [!IMPORTANT]
 > 「要確認」は、選択したデータ内で相対的に珍しい行動を示します。学生の評価、診断、不正判定を行うものではありません。
@@ -33,12 +33,10 @@
 | 対象期間 | 1〜8週目 |
 | 学生・週 | 1,448件 |
 | 操作ログ | 205,500件 |
-| 挿入した外れ行動 | 72学生・週 |
-| 生成シード | `20260820` |
 
-`public_data/learning_events.csv.gz` は完全な合成データです。元データの行や識別子を加工・置換したものではなく、生成ルールから新しく作成しています。
+`public_data/learning_events.csv.gz` は公開デモ用のデータセットです。
 
-詳細な列定義は [public_data/README.md](public_data/README.md)、生成条件は [public_data/metadata.json](public_data/metadata.json) を参照してください。
+列の意味は [public_data/README.md](public_data/README.md) を参照してください。
 
 ## 分析方法
 
@@ -55,7 +53,7 @@
 - **PCA**: 2次元の分布表示
 - **K-Means**: 行動タイプのグループ化
 
-要確認スコアは選択範囲内の相対順位を0〜100で表したもので、異常の確率ではありません。生成時の検証用ラベルは、異常検知の特徴量に使用していません。
+要確認スコアは選択範囲内の相対順位を0〜100で表したもので、異常の確率ではありません。
 
 ## 必要環境
 
@@ -66,11 +64,10 @@
 
 ```bash
 python3 -m pip install -r requirements.txt
-python3 scripts/generate_public_dummy_data.py
 streamlit run web_public.py
 ```
 
-ブラウザで表示されたURLを開きます。ダミーデータはリポジトリに含まれているため、内容を再生成しない場合は2行目を省略できます。
+ブラウザで表示されたURLを開きます。公開用データはリポジトリに含まれています。
 
 ## 画面の見方
 
@@ -79,21 +76,6 @@ streamlit run web_public.py
 3. **要確認ランキング**で確認対象を絞ります。
 4. **学生・週の詳細**で操作内訳と時系列を確認します。
 5. **行動タイプ**で似た学習行動のまとまりを比較します。
-
-## ダミーデータの再生成
-
-```bash
-python3 scripts/generate_public_dummy_data.py
-```
-
-既定のシードでは、同じ規模・内容が生成されます。出力先やシードを変更する場合は次のように指定できます。
-
-```bash
-python3 scripts/generate_public_dummy_data.py \
-  --output public_data/learning_events.csv.gz \
-  --metadata public_data/metadata.json \
-  --seed 20260820
-```
 
 ## デモ動画の再作成
 
@@ -151,10 +133,8 @@ requirements-video.txt               # 動画作成用依存関係
 .gitattributes                       # 動画・画像・圧縮データをバイナリとして扱う設定
 public_data/
   learning_events.csv.gz             # 合成イベントログ
-  metadata.json                       # 生成条件と件数
   README.md                           # データ列の説明
 scripts/
-  generate_public_dummy_data.py       # 合成データ生成
   create_demo_video.py                # 実UIの録画
 demo/
   public_dashboard_demo.mp4           # 公開デモ動画
