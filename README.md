@@ -91,28 +91,6 @@ python3 scripts/create_demo_video.py
 - `demo/public_dashboard_demo.mp4`
 - `docs/public-dashboard-overview.png`
 
-## GitHub / Streamlit Community Cloud への公開
-
-このフォルダの内容だけで、公開用リポジトリを作成できます。研究用データ、モデル、ノートブックは含まれていません。
-
-Streamlit Community Cloudでは、GitHubリポジトリを接続して次の設定を指定します。
-
-- **Main file path**: `web_public.py`
-- **Python version**: 3.10以上
-- **Dependencies file**: `requirements.txt`
-
-リポジトリに含まれる合成データだけで起動できます。認証情報や実データを追加する場合は、`.streamlit/secrets.toml`をコミットしないでください。
-
-## 研究用版との違い
-
-| 項目 | 公開版 | 研究用版 |
-|---|---|---|
-| データ | 完全な合成データ | 研究用データ |
-| 分析単位 | 学生 × 週 | 複数モード |
-| 異常検知 | 軽量な行動特徴量 + Isolation Forest | BERT埋め込み + Isolation Forest |
-| 依存関係 | Streamlit、pandas、scikit-learn中心 | OpenLA、PyTorchなどを含む |
-| UI | 4タブに整理 | 詳細な研究分析向け |
-
 ## 制約
 
 - 合成データの結果は、実運用上の性能を示すベンチマークではありません。
